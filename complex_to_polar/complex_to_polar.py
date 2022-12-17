@@ -39,22 +39,22 @@ for i in range(0,len(cp)):
     t.append(np.arctan(cp[i][1]/cp[i][0]))
 
 # Printing the values
-print("<--Complex Form-->")
+print("\n<--Complex Form-->")
 print(f"z1 = {cp[0][0]}+{cp[0][1]}i , z2 = {cp[1][0]}+{cp[1][1]}i")
 print(f"z1 * z2 = {cp[2][0]} + {cp[2][1]}i")
-print(f"<--Polar Coordinates-->")
+print(f"\n<--Polar Coordinates-->")
 print(f"z1 = ({r[0]}{t[0]}\nz2 = ({r[1]},{t[1]})\nz1 * z2 = ({r[2]},{t[2]})")
-
 
 # Ploting Points with manim
 class complex_to_polar(Scene):
     def construct(self):
         axes = Axes(x_range= [-25,25], y_range= [-25,25]).add_coordinates(font_size= 15)
         self.add(axes)
+        Tex.set_default(font_size= 15)
         for i in range(0,len(cp)):
             pt = Dot(color= YELLOW).move_to(axes.polar_to_point(r[i],t[i]))
             self.add(
                 pt,
-                MathTex(f"z{i} = {cp[i][0]} + ({cp[i][1]})i").next_to(pt, UR, buff= 1),
+                Tex(f"z{i} = {cp[i][0]} + ({cp[i][1]})i").next_to(pt, UR, buff= 0),
                 Vector(axes.polar_to_point(r[i],t[i]), color= BLUE)
             )
