@@ -55,6 +55,6 @@ class complex_to_polar(Scene):
             pt = Dot(color= YELLOW).move_to(axes.polar_to_point(r[i],t[i]))
             self.add(
                 pt,
-                Tex(f"z{i} = {cp[i][0]} + ({cp[i][1]})i").next_to(pt, UR, buff= 0),
+                Tex(f"z{i+1} = {cp[i][0]} + ({cp[i][1]})i").next_to(pt, UR, buff= 0),
                 Vector(axes.polar_to_point(r[i],t[i]), color= BLUE)
             )
