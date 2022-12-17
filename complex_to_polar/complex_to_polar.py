@@ -48,8 +48,12 @@ print(f"z1 = ({r[0]}{t[0]}\nz2 = ({r[1]},{t[1]})\nz1 * z2 = ({r[2]},{t[2]})")
 # Ploting Points with manim
 class complex_to_polar(Scene):
     def construct(self):
-        axes = Axes(x_range= [-25,25], y_range= [-25,25]).add_coordinates(font_size= 15)
-        self.add(axes)
+        axes = Axes(x_range= [-25,25], y_range= [-25,25], x_length= 15, y_length= 15).add_coordinates(font_size= 15)
+        polarplane = PolarPlane(
+            radius_max = 25,
+            size = 15
+        )
+        self.add(axes, polarplane)
         Tex.set_default(font_size= 15)
         for i in range(0,len(cp)):
             pt = Dot(color= YELLOW).move_to(axes.polar_to_point(r[i],t[i]))
